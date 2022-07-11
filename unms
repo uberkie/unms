@@ -68,14 +68,30 @@ function airOS_getFile_HTTP ($username, $password, $file, $address, $schema)
  
         curl_close ($ch);
 
-        $json = json_decode($retfile, true);
+         $json = json_decode($retfile, true);
         $value = $json['wireless']['throughput']  ?? '' ;
-        echo "tx ,". $value['tx'] /1024;
-        echo" , ";
-        echo  "rx ,".$value['rx'] /1024;
-        echo "\n";
- 
+
+    $tx = $value['tx'] /1024;
+    $rx = $value['rx'] /1024;
+
+
+    //echo "tx ". $value['tx'] /1024;
+    //    echo" , ";
+    //    echo  "rx ".$value['rx'] /1024;
+     //  echo "\n";
+
+   $rows['name'] = 'Tx';
+    $rows['data'][] = $tx;
+    $rows2['name'] = 'Rx';
+    $rows2['data'][] = $rx;
+
+    $result = array();
+    array_push($result,$rows);
+    array_push($result,$rows2);
+    print json_encode($result, JSON_NUMERIC_CHECK);
+
+
 };
-?>
+
 
 
