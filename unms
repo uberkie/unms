@@ -10,7 +10,7 @@
  
 #$out = airOS_getFile_HTTP ("root", "xxx", "status.cgi", "10.210.48.2", "https"); // CPE mng
 #$out = airOS_getFile_HTTP ("galileo", "xxx", "status.cgi", "10.210.12.247", "http"); // settore
-$out = airOS_getFile_HTTP ("Support", "Stiaan123", "status.cgi?", "192.168.50.2", "https"); // CPE
+$out = airOS_getFile_HTTP ("username", "password", "status.cgi?", "192.168.1.0", "https"); // CPE
 print $out;
  
 function airOS_getFile_HTTP ($username, $password, $file, $address, $schema)
