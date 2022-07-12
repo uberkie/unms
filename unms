@@ -10,7 +10,7 @@
  
 #$out = airOS_getFile_HTTP ("root", "xxx", "status.cgi", "10.210.48.2", "https"); // CPE mng
 #$out = airOS_getFile_HTTP ("galileo", "xxx", "status.cgi", "10.210.12.247", "http"); // settore
-$out = airOS_getFile_HTTP ("username", "password", "status.cgi?", "192.168.1.0", "https"); // CPE
+$out = airOS_getFile_HTTP ("Support", "Stiaan123", "status.cgi?", "192.168.50.24", "https"); // CPE
 print $out;
  
 function airOS_getFile_HTTP ($username, $password, $file, $address, $schema)
@@ -80,7 +80,7 @@ function airOS_getFile_HTTP ($username, $password, $file, $address, $schema)
     //    echo  "rx ".$value['rx'] /1024;
      //  echo "\n";
 
-   $rows['name'] = 'Tx';
+    $rows['name'] = 'Tx';
     $rows['data'][] = $tx;
     $rows2['name'] = 'Rx';
     $rows2['data'][] = $rx;
@@ -89,9 +89,9 @@ function airOS_getFile_HTTP ($username, $password, $file, $address, $schema)
     array_push($result,$rows);
     array_push($result,$rows2);
     print json_encode($result, JSON_NUMERIC_CHECK);
+    //echo $_GET['callback']. '('. json_encode($result) . ')';
 
 
 };
 
-
-
+?>
